@@ -5,7 +5,6 @@ export default class LoginPage {
     private readonly userNameField: Locator;
     private readonly passwordField: Locator;
     private readonly loginButton: Locator;
-    private readonly titleText: Locator;
     private readonly errorMessage: Locator;
 
     constructor(page: Page) {
@@ -14,7 +13,6 @@ export default class LoginPage {
         this.passwordField = page.locator('//input[@id="password"]');
         this.loginButton = page.locator('//input[@class="submit-button btn_action"]');
         this.errorMessage = page.locator('//h3[@data-test="error"]');
-        this.titleText = page.locator('//span[@class="title"]')
     }
     async openPage() {
         await this.page.goto('/');
@@ -28,31 +26,10 @@ export default class LoginPage {
     async clickLoginButton() {
         await this.loginButton.click();
     }
-    async title(title: string) {
-        await expect(this.titleText).toBeVisible();
-        await expect(this.titleText).toHaveText('Products');
-    }
-    async errorMessageEmptyPassword(expectedText: string) {
+    async verifyErrorMessage(expectedText: string) {
         await expect(this.errorMessage).toBeVisible();
-        await expect(this.errorMessage).toHaveText('Epic sadface: Password is required');
+        await expect(this.errorMessage).toHaveText(expectedText);
     }
-    async errorMessageEmptyUsername(expectedText: string) {
-        await expect(this.errorMessage).toBeVisible();
-        await expect(this.errorMessage).toHaveText('Epic sadface: Username is required');
-    }
-    async errorMessageWrongUsername(expectedText: string) {
-        await expect(this.errorMessage).toBeVisible();
-        await expect(this.errorMessage).toHaveText('Epic sadface: Username and password do not match any user in this service');
-    }
-    async errorMessageLockedUser(expectedText: string) {
-        await expect(this.errorMessage).toBeVisible();
-        await expect(this.errorMessage).toHaveText('Epic sadface: Sorry, this user has been locked out.');
-    }
-    async errorMessageErrorUser(expectedText: string) {
-        await expect(this.errorMessage).toBeVisible();
-        await expect(this.errorMessage).toHaveText('Epic sadface: Username and password do not match any user in this service');
-    }
-
     async login(username: string, password: string) {
         await this.openPage();
         await this.enterUserName(username);

@@ -20,9 +20,9 @@ export default class CartPage {
         this.addToCartButton.click();
     }
 
-    async cartBadgeNumber(expectedText: string) {
+    async cartBadgeNumber(productsNumber: string) {
         await this.cartBadge.waitFor({ state: 'visible' });
-        await expect(this.cartBadge).toHaveText("1");
+        await expect(this.cartBadge).toHaveText(productsNumber);
     }
     async openCart() {
 

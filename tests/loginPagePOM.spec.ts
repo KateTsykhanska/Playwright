@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
 import LoginPage from '../pom/pages/loginPage';
-
+import InventoryPage from '../pom/pages/InventoryPage';
 
 test('Successfull login', async ({ page }) => {
     let loginPage = new LoginPage(page);
+    let inventoryPage = new InventoryPage(page);
     await loginPage.openPage();
     await loginPage.enterUserName('standard_user');
     await loginPage.enterPassword('secret_sauce');
     await loginPage.clickLoginButton();
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
-    await loginPage.title('Products');
+    await inventoryPage.title('Products');
 })
 
 test('Authorisation without password', async ({ page }) => {
@@ -17,7 +18,7 @@ test('Authorisation without password', async ({ page }) => {
     await loginPage.openPage();
     await loginPage.enterUserName('standard_user');
     await loginPage.clickLoginButton();
-    await loginPage.errorMessageEmptyPassword('');
+    await loginPage.verifyErrorMessage('Epic sadface: Password is required');
 })
 
 test('Authorisation without username', async ({ page }) => {
@@ -25,7 +26,7 @@ test('Authorisation without username', async ({ page }) => {
     await loginPage.openPage();
     await loginPage.enterPassword('secret_sauce');
     await loginPage.clickLoginButton();
-    await loginPage.errorMessageEmptyUsername('');
+    await loginPage.verifyErrorMessage('Epic sadface: Username is required');
 })
 
 test('Authorisation with wrong password', async ({ page }) => {
@@ -34,7 +35,7 @@ test('Authorisation with wrong password', async ({ page }) => {
     await loginPage.enterUserName('standard_user')
     await loginPage.enterPassword('secret_sauce123');
     await loginPage.clickLoginButton();
-    await loginPage.errorMessageWrongUsername('');
+    await loginPage.verifyErrorMessage('Epic sadface: Username and password do not match any user in this service');
 })
 
 test('Authorisation locked user', async ({ page }) => {
@@ -43,7 +44,7 @@ test('Authorisation locked user', async ({ page }) => {
     await loginPage.enterUserName('locked_out_user')
     await loginPage.enterPassword('secret_sauce');
     await loginPage.clickLoginButton();
-    await loginPage.errorMessageLockedUser('');
+    await loginPage.verifyErrorMessage('Epic sadface: Sorry, this user has been locked out.');
 })
 
 test('Authorisation error user', async ({ page }) => {
@@ -52,7 +53,7 @@ test('Authorisation error user', async ({ page }) => {
     await loginPage.enterUserName('erroruser')
     await loginPage.enterPassword('secret_sauce');
     await loginPage.clickLoginButton();
-    await loginPage.errorMessageErrorUser('');
+    await loginPage.verifyErrorMessage('Epic sadface: Username and password do not match any user in this service');
 })
 
 

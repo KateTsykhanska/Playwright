@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import LoginPage from '../pom/pages/loginPage';
 import CartPage from '../pom/pages/CartPage';
+import LoginPage from '../pom/pages/loginPage';
 
 test.beforeEach(async ({ page }) => {
   let loginPage = new LoginPage(page);
@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 test('Adding to cart', async ({ page }) => {
   let cartPage = new CartPage(page);
   await cartPage.addToCart();
-  await cartPage.cartBadgeNumber("");
+  await cartPage.cartBadgeNumber("1");
   await cartPage.openCart();
   await expect(page).toHaveURL("https://www.saucedemo.com/cart.html")
   await cartPage.productCheck();
@@ -19,7 +19,7 @@ test('Adding to cart', async ({ page }) => {
 test('Removing a product', async ({ page }) => {
   let cartPage = new CartPage(page);
   await cartPage.addToCart();
-  await cartPage.cartBadgeNumber("");
+  await cartPage.cartBadgeNumber("1");
   await cartPage.openCart();
   await expect(page).toHaveURL("https://www.saucedemo.com/cart.html")
   await cartPage.productCheck();
