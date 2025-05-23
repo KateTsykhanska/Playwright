@@ -10,6 +10,8 @@ export default class RegistrationPage {
     private readonly registrationSubmitButton: Locator;
     private readonly successMessage: Locator;
     private readonly errorMessage: Locator;
+    private readonly logoutIcon: Locator;
+    private readonly logoutLink: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -21,6 +23,8 @@ export default class RegistrationPage {
         this.registrationSubmitButton = page.locator("//button[@class='ui primary button tw-w-full']")
         this.successMessage = page.locator("//div[@class='ui positive message flash-message flash-success']");
         this.errorMessage = page.locator("//div[@class='ui negative message flash-message flash-error']");
+        this.logoutIcon = page.locator("//div[@aria-label='Profile and Settings…']");
+        this.logoutLink = page.locator("//div[@class='ui dropdown jump item tw-mx-0 tw-pr-2 active visible']");
     }
     async registerWithCredentials(username: string, email: string, password: string) {
         await this.page.goto('/');
@@ -30,6 +34,10 @@ export default class RegistrationPage {
         await this.passwordField.fill(password);
         await this.repeatPasswordField.fill(password);
         await this.registrationSubmitButton.click();
+    }
+    async logOut() {
+        await this.logoutIcon.click();
+        await this.logoutLink.click();
     }
     async verifySuccessMessage(message: string) {
         await expect(this.successMessage).toBeVisible;
