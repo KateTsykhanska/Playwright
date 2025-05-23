@@ -58,11 +58,8 @@ export default class RegistrationPage {
         } else {
             throw new Error(`Unknown field name: ${fieldName}`);
         }
-
-        const validationMessage = await elementToCheck.evaluate(
-            (el) => (el as HTMLInputElement).validationMessage
-        );
-        expect(validationMessage).not.toBe('');
+        
+        await expect(elementToCheck).toHaveText('');
     }
 }
 
