@@ -1,0 +1,238 @@
+# Test info
+
+- Name: Get all repositories
+- Location: /Users/user/Desktop/HW17/tests/api.spec.ts:15:9
+
+# Error details
+
+```
+Error: apiRequestContext.get: Target page, context or browser has been closed
+Call log:
+  - → GET http://localhost:3000/repo/search?sort=updated&order=desc&uid=9&team_id=undefined&q=&page=1&limit=15&mode=&archived=false
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+    at /Users/user/Desktop/HW17/tests/api.spec.ts:19:34
+```
+
+# Page snapshot
+
+```yaml
+- navigation "Navigation Bar":
+  - link "Dashboard":
+    - /url: /
+  - link "Issues":
+    - /url: /issues
+  - link "Pull Requests":
+    - /url: /pulls
+  - link "Milestones":
+    - /url: /milestones
+  - link "Explore":
+    - /url: /explore/repos
+  - link "Notifications":
+    - /url: /notifications
+  - menu "Create…"
+  - menu "Profile and Settings…":
+    - img "Kate123555"
+- main "Kate123555 - Dashboard":
+  - menu:
+    - img "Kate123555"
+    - text: Kate123555
+  - text: 14 contributions in the last 12 months
+  - img: Jul Aug Sep Oct Nov Dec Jan Feb Mar Apr May Jun Mon Wed Fri
+  - text: Less
+  - img
+  - text: More
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/2323":
+    - /url: /Kate123555/2323
+  - text: 2025-05-23 08:43:41 +00:002 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/111":
+    - /url: /Kate123555/111
+  - text: 2025-05-23 08:43:09 +00:002 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_world":
+    - /url: /Kate123555/New_world
+  - text: 2025-05-22 13:47:35 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New":
+    - /url: /Kate123555/New
+  - text: 2025-05-22 11:49:16 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo0":
+    - /url: /Kate123555/New_repo0
+  - text: 2025-05-22 11:48:41 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_rep73233":
+    - /url: /Kate123555/New_rep73233
+  - text: 2025-05-22 11:48:29 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_rep7":
+    - /url: /Kate123555/New_rep7
+  - text: 2025-05-22 09:48:56 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo6":
+    - /url: /Kate123555/New_repo6
+  - text: 2025-05-22 09:47:18 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo4":
+    - /url: /Kate123555/New_repo4
+  - text: 2025-05-22 09:30:36 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo3":
+    - /url: /Kate123555/New_repo3
+  - text: 2025-05-22 09:21:19 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo2":
+    - /url: /Kate123555/New_repo2
+  - text: 2025-05-22 09:18:42 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo1":
+    - /url: /Kate123555/New_repo1
+  - text: 2025-05-22 09:15:17 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/New_repo":
+    - /url: /Kate123555/New_repo
+  - text: 2025-05-22 09:02:40 +00:003 weeks ago
+  - img "Kate123555"
+  - link "Kate123555":
+    - /url: /Kate123555
+  - text: created repository
+  - link "Kate123555/1":
+    - /url: /Kate123555/1
+  - text: 2025-05-22 08:37:14 +00:003 weeks ago Repository Organization
+  - heading "Repositories 14 New Repository" [level=4]:
+    - text: Repositories 14
+    - link "New Repository":
+      - /url: /repo/create
+  - searchbox "Search repos..."
+  - combobox "Other Filters"
+  - navigation:
+    - text: All 14 Sources Forks Mirrors
+    - button "More items"
+  - list:
+    - listitem:
+      - link "Kate123555/2323":
+        - /url: /Kate123555/2323
+    - listitem:
+      - link "Kate123555/111":
+        - /url: /Kate123555/111
+    - listitem:
+      - link "Kate123555/New_world":
+        - /url: /Kate123555/New_world
+    - listitem:
+      - link "Kate123555/New":
+        - /url: /Kate123555/New
+    - listitem:
+      - link "Kate123555/New_repo0":
+        - /url: /Kate123555/New_repo0
+    - listitem:
+      - link "Kate123555/New_rep73233":
+        - /url: /Kate123555/New_rep73233
+    - listitem:
+      - link "Kate123555/New_rep7":
+        - /url: /Kate123555/New_rep7
+    - listitem:
+      - link "Kate123555/New_repo6":
+        - /url: /Kate123555/New_repo6
+    - listitem:
+      - link "Kate123555/New_repo4":
+        - /url: /Kate123555/New_repo4
+    - listitem:
+      - link "Kate123555/New_repo3":
+        - /url: /Kate123555/New_repo3
+    - listitem:
+      - link "Kate123555/New_repo2":
+        - /url: /Kate123555/New_repo2
+    - listitem:
+      - link "Kate123555/New_repo1":
+        - /url: /Kate123555/New_repo1
+    - listitem:
+      - link "Kate123555/New_repo":
+        - /url: /Kate123555/New_repo
+    - listitem:
+      - link "Kate123555/1":
+        - /url: /Kate123555/1
+- group "Footer":
+  - contentinfo "About Software":
+    - link "Powered by Gitea":
+      - /url: https://about.gitea.com
+    - text: "Version: 1.23.8 Page:"
+    - strong: 128ms
+    - text: "Template:"
+    - strong: 44ms
+  - group "Links":
+    - menu: English
+    - link "Licenses":
+      - /url: /assets/licenses.txt
+    - link "API":
+      - /url: /api/swagger
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from "@playwright/test";
+   2 | import LoginPage from "../pom/pages/LoginPage";
+   3 | import { request } from "http";
+   4 |
+   5 | test('API tests', async ({ page }) => {
+   6 |     let loginPage = new LoginPage(page);
+   7 |     await loginPage.signInWithCredentials("kateeegold+5@gmail.com", "Kate123321")
+   8 |     await expect(page).toHaveURL("http://localhost:3000/");
+   9 |     page.on('request', request => console.log('Запит:',
+  10 |         request.method(), request.url()));
+  11 |     page.on('response', response => console.log('Відповідь:',
+  12 |         response.status(), response.url()));
+  13 |     })
+  14 |
+  15 |     test ('Get all repositories', async ({page, request}) => {
+  16 |         let loginPage = new LoginPage(page);
+  17 |         await loginPage.signInWithCredentials("kateeegold+5@gmail.com", "Kate123321")
+  18 |         await expect(page).toHaveURL("http://localhost:3000/");
+> 19 |         const response = request.get("http://localhost:3000/repo/search?sort=updated&order=desc&uid=9&team_id=undefined&q=&page=1&limit=15&mode=&archived=false");
+     |                                  ^ Error: apiRequestContext.get: Target page, context or browser has been closed
+  20 |         await console.log(response);
+  21 |     })
+```

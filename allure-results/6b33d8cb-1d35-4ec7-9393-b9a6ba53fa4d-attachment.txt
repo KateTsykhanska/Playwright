@@ -1,0 +1,9 @@
+APIResponse: 200 OK
+  Access-Control-Expose-Headers: X-Total-Count
+  Cache-Control: max-age=0, private, must-revalidate, no-transform
+  Content-Type: application/json;charset=utf-8
+  X-Frame-Options: SAMEORIGIN
+  X-Total-Count: 14
+  Date: Tue, 10 Jun 2025 20:17:02 GMT
+  Content-Length: 12
+{ ok: true }

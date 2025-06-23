@@ -1,0 +1,9 @@
+APIResponse: 404 Not Found
+  Cache-Control: max-age=0, private, must-revalidate, no-transform
+  Content-Type: text/plain;charset=utf-8
+  Set-Cookie: i_like_gitea=2d791978b021466f; Path=/; HttpOnly; SameSite=Lax
+  Set-Cookie: _csrf=mE5GvK-_iT3O5kEQG_9Fq76p8pM6MTc0OTQ4OTAwMDQxMDQwMzA1NA; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Date: Mon, 09 Jun 2025 17:10:00 GMT
+  Content-Length: 11

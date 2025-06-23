@@ -1,0 +1,1 @@
+Registration token response: { token: 'gzc82Q72i71h33FGI9SsU2EgisLRLjG20Rfh7j8T' }

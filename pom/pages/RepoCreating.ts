@@ -41,6 +41,7 @@ export default class RepoCreating {
     async gitIgnoreFill() {
         await this.gitIgnoreDropdown.click();
         await this.gitIgnoreMacOS.click();
+        await this.repoNameField.click();
     }
     async licenseFill() {
         await this.licenseDropdown.click();

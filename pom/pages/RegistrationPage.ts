@@ -59,7 +59,7 @@ export default class RegistrationPage {
             throw new Error(`Unknown field name: ${fieldName}`);
         }
         
-        await expect(elementToCheck).toHaveText('');
+        await expect(elementToCheck).toHaveText("");
     }
 }
 

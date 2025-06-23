@@ -1,0 +1,98 @@
+# Test info
+
+- Name: Repository Creation >> New repo creating with invalid repo name
+- Location: /Users/user/Desktop/HW17/tests/repoCreating.spec.ts:51:9
+
+# Error details
+
+```
+Error: page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://localhost:3000/
+Call log:
+  - navigating to "https://localhost:3000/", waiting until "load"
+
+    at RegistrationPage.registerWithCredentials (/Users/user/Desktop/HW17/pom/pages/RegistrationPage.ts:30:25)
+    at /Users/user/Desktop/HW17/tests/repoCreating.spec.ts:23:32
+```
+
+# Page snapshot
+
+```yaml
+- heading "This site can’t provide a secure connection" [level=1]
+- paragraph:
+  - strong: localhost
+  - text: sent an invalid response.
+- text: ERR_SSL_PROTOCOL_ERROR
+- button "Reload"
+```
+
+# Test source
+
+```ts
+   1 | import { Locator, Page, expect } from "@playwright/test";
+   2 |
+   3 | export default class RegistrationPage {
+   4 |     private readonly page: Page;
+   5 |     private readonly registrationButton: Locator;
+   6 |     private readonly userNameField: Locator;
+   7 |     private readonly emailField: Locator;
+   8 |     private readonly passwordField: Locator;
+   9 |     private readonly repeatPasswordField: Locator;
+  10 |     private readonly registrationSubmitButton: Locator;
+  11 |     private readonly successMessage: Locator;
+  12 |     private readonly errorMessage: Locator;
+  13 |     private readonly logoutIcon: Locator;
+  14 |     private readonly logoutLink: Locator;
+  15 |
+  16 |     constructor(page: Page) {
+  17 |         this.page = page;
+  18 |         this.registrationButton = page.locator('//a[@href="/user/sign_up"]');
+  19 |         this.userNameField = page.locator("//input[@id='user_name']");
+  20 |         this.emailField = page.locator("//input[@id='email']");
+  21 |         this.passwordField = page.locator("//input[@id='password']");
+  22 |         this.repeatPasswordField = page.locator("//input[@id='retype']");
+  23 |         this.registrationSubmitButton = page.locator("//button[@class='ui primary button tw-w-full']")
+  24 |         this.successMessage = page.locator("//div[@class='ui positive message flash-message flash-success']");
+  25 |         this.errorMessage = page.locator("//div[@class='ui negative message flash-message flash-error']");
+  26 |         this.logoutIcon = page.locator("//div[@aria-label='Profile and Settings…']");
+  27 |         this.logoutLink = page.locator("//div[@class='ui dropdown jump item tw-mx-0 tw-pr-2 active visible']");
+  28 |     }
+  29 |     async registerWithCredentials(username: string, email: string, password: string) {
+> 30 |         await this.page.goto('/');
+     |                         ^ Error: page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://localhost:3000/
+  31 |         await this.registrationButton.click();
+  32 |         await this.userNameField.fill(username);
+  33 |         await this.emailField.fill(email);
+  34 |         await this.passwordField.fill(password);
+  35 |         await this.repeatPasswordField.fill(password);
+  36 |         await this.registrationSubmitButton.click();
+  37 |     }
+  38 |     async logOut() {
+  39 |         await this.logoutIcon.click();
+  40 |         await this.logoutLink.click();
+  41 |     }
+  42 |     async verifySuccessMessage(message: string) {
+  43 |         await expect(this.successMessage).toBeVisible;
+  44 |         await expect(this.successMessage).toHaveText(message);
+  45 |     }
+  46 |     async verifyErrorMessage(error: string) {
+  47 |         await expect(this.errorMessage).toHaveText(error);
+  48 |     }
+  49 |     async verifyErrorMessageForFieldIsShown(fieldName: string) {
+  50 |         let elementToCheck: Locator;
+  51 |
+  52 |         if (fieldName === 'userName') {
+  53 |             elementToCheck = this.userNameField;
+  54 |         } else if (fieldName === 'email') {
+  55 |             elementToCheck = this.emailField;
+  56 |         } else if (fieldName === 'password') {
+  57 |             elementToCheck = this.passwordField;
+  58 |         } else {
+  59 |             throw new Error(`Unknown field name: ${fieldName}`);
+  60 |         }
+  61 |         
+  62 |         await expect(elementToCheck).toHaveText('');
+  63 |     }
+  64 | }
+  65 |
+  66 |
+```

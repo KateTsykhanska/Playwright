@@ -1,0 +1,4 @@
+Registration token response: {
+  message: 'token is required',
+  url: 'http://localhost:3000/api/swagger'
+}

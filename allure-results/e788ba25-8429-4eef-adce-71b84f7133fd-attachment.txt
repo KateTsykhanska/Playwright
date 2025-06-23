@@ -1,0 +1,11 @@
+Authenticated user: {
+  full_name: 'Kate QA',
+  website: 'https://example.com',
+  description: '',
+  location: '',
+  language: 'en-US',
+  theme: 'gitea-auto',
+  diff_view_style: '',
+  hide_email: false,
+  hide_activity: false
+}

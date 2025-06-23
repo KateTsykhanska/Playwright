@@ -1,0 +1,7 @@
+APIResponse: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate, no-transform
+  Content-Type: text/html; charset=utf-8
+  Set-Cookie: gitea_incredible=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax
+  X-Frame-Options: SAMEORIGIN
+  Date: Mon, 09 Jun 2025 17:08:35 GMT
+  Transfer-Encoding: chunked
